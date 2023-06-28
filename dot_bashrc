@@ -8,6 +8,7 @@
 alias mvault='sudo cryptsetup open /home/vaelio/vault.img vault && sudo mount /dev/mapper/vault /home/vaelio/vaultmnt'
 alias ls='lsd'
 alias grep='grep --color=auto'
+alias ipa='ip --brief --color a'
 PS1='[\u@\h \W]\$ '
 . "$HOME/.cargo/env"
 export PATH="$HOME/.local/bin/:$PATH"
