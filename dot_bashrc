@@ -5,11 +5,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+. "$HOME/.cargo/env"
+cfonts 'Formind - vaelio' -c bluebright -f tiny -s
+export EDITOR=vim
+export SYSTEMD_EDITOR=vim
 alias mvault='sudo cryptsetup open /home/vaelio/vault.img vault && sudo mount /dev/mapper/vault /home/vaelio/vaultmnt'
+alias uvault='sudo umount /home/vaelio/vaultmnt && sudo cryptsetup close vault'
 alias ls='lsd'
 alias grep='grep --color=auto'
 alias ipa='ip --brief --color a'
 PS1='[\u@\h \W]\$ '
-. "$HOME/.cargo/env"
 export PATH="$HOME/.local/bin/:$PATH"
+eval $(ssh-agent) > /dev/null
+alias proadd='ssh-add ~/vaultmnt/id_rsa_git'
 eval "$(starship init bash)"
